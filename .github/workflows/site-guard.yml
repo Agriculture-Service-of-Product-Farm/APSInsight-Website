@@ -13,26 +13,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - name: Reject scripts, remotes and missing CSP
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Reject executable script and unexpected remotes
         run: |
           set -eu
           fail=0
-          html=$(find . -name '*.html' -not -path './.git/*')
-          for f in $html; do
+          for f in $(find . -name '*.html' -not -path './.git/*'); do
             if ! grep -q "default-src 'none'" "$f"; then
               echo "missing strict CSP: $f"
               fail=1
             fi
-            if grep -E -i "<script|javascript:|onclick=|onload=|unsafe-inline|unsafe-eval|document\.cookie|googletagmanager|google-analytics|fonts\.googleapis|cdn\." "$f"; then
+            if grep -E -i "<script" "$f" | grep -v -E 'type="application/ld\+json"'; then
+              echo "executable script: $f"
+              fail=1
+            fi
+            if grep -E -i "javascript:|onclick=|onload=|unsafe-inline|unsafe-eval|document\\.cookie|googletagmanager|google-analytics|fonts\\.googleapis|cdn\\." "$f"; then
               echo "forbidden pattern: $f"
               fail=1
             fi
+            if ! grep -q "<title>" "$f"; then echo "missing title: $f"; fail=1; fi
+            if ! grep -q 'name="description"' "$f"; then echo "missing description: $f"; fail=1; fi
           done
-          if grep -R -E -n "https?://|//[a-zA-Z]" --include='*.html' --include='*.css' --include='*.svg' .             | grep -v -E "github.com/SbruiceS/APSInsight|agriculture-service-of-product-farm.github.io|http-equiv|xmlns=|w3.org/2000/svg|sitemaps/schemas"; then
+          if grep -R -E -n "https?://|//[a-zA-Z]" --include='*.html' --include='*.css' --include='*.svg' . \
+            | grep -v -E "agriculture-service-of-product-farm.github.io|schema.org|http-equiv|xmlns=|w3.org/2000/svg"; then
             echo "unexpected remote reference"
             fail=1
           fi
           test -f .well-known/security.txt
           test -f .nojekyll
+          test -f logo.png
+          test -f sitemap.xml
           exit "$fail"

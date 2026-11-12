@@ -2,28 +2,23 @@
 
 Agriculture Service of Product Farm (ASPF)
 
-Static public site for **APSInsight**, the agricultural data analytics engine at [SbruiceS/APSInsight](https://github.com/SbruiceS/APSInsight).
+Static explanation of **APSInsight** for farmers and agriculture businesses.
 
-This repository does **not** contain the engine, farm records, tokens, threat-model exploit notes, or model weights.
+This repository does not contain application source, configuration, credentials, or farm records.
+
+## What is stated
+
+Wording is limited to what ASPF project descriptions support: farm, field, plot, soil sample, observation, dataset catalogue, quality note, basic numerical summary, and an append-only activity record. Yield figures, user counts, and unfinished map or sensor products are not claimed.
 
 ## Security posture
 
-- No JavaScript, no cookies, no forms, no third-party resources
-- Content-Security-Policy via meta: `default-src 'none'`, same-origin styles and images only, no `unsafe-inline`
-- `security.txt` at `.well-known/security.txt`
-- Private vulnerability reports only (see `SECURITY.md`)
-- `main` is protected against force-push and deletion
-- GitHub secret scanning and push protection are requested on the repository
-- CI (`site-guard`) rejects scripts, remote URLs and inline handlers
-
-GitHub Pages serves the site from the root of `main` over HTTPS. GitHub, not this repo, sets transport headers such as HSTS.
-
-## Status source
-
-Public counts match `docs/STATUS.md` on engine commit `1c6f324` (2026-10-15): 1,590 tested, 908 partial, 224 specified, 378 blocked, of 3,100 features.
+- No cookies, no forms, no third-party resources
+- No executable script. Search structured data is a JSON-LD block allowed only by its content hash
+- `security.txt` for private vulnerability reports
+- `main` cannot be force-pushed or deleted
+- Secret scanning and push protection are enabled
+- GitHub Pages serves the site from the root of `main` over HTTPS
 
 ## Licence
 
-Website text and markup: Apache-2.0, same family as the engine. The engine itself remains in its own repository.
-
-Published from branch main.
+Website text and markup: Apache-2.0. APSInsight software is not distributed from this site.

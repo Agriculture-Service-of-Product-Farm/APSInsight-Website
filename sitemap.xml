@@ -1,8 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/</loc></url>
-  <url><loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/platform.html</loc></url>
-  <url><loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/science.html</loc></url>
-  <url><loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/status.html</loc></url>
-  <url><loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/security.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <image:image>
+      <image:loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/logo.png</image:loc>
+      <image:title>APSInsight logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/og.jpg</image:loc>
+      <image:title>APSInsight share image</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/farmers.html</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/business.html</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/records.html</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/platform.html</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/status.html</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://agriculture-service-of-product-farm.github.io/APSInsight-Website/security.html</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
 </urlset>

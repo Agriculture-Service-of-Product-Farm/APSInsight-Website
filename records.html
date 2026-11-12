@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Farm, soil and crop records in APSInsight</title>
+  <meta name="description" content="APSInsight records a farm, its fields and plots, soil samples, and observations with value, unit, time and a quality flag. A measurement is not stored as if it were a guess.">
+  <link rel="canonical" href="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/records.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Agriculture Service of Product Farm">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f4faf7">
+  <meta name="geo.region" content="IN-UP">
+  <meta name="geo.placename" content="Azamgarh">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-Bf9uHS216sRu/34X/JZ/beWWpIjxPGkvaoemVTepN3U='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta property="og:title" content="Farm, soil and crop records in APSInsight">
+  <meta property="og:description" content="APSInsight records a farm, its fields and plots, soil samples, and observations with value, unit, time and a quality flag. A measurement is not stored as if it were a guess.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/records.html">
+  <meta property="og:image" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="APSInsight logo on a pale green and blue background">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:site_name" content="APSInsight">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Farm, soil and crop records in APSInsight">
+  <meta name="twitter:description" content="APSInsight records a farm, its fields and plots, soil samples, and observations with value, unit, time and a quality flag. A measurement is not stored as if it were a guess.">
+  <meta name="twitter:image" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/og.jpg">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/#org","name":"Agriculture Service of Product Farm","alternateName":"ASPF","url":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/","logo":{"@type":"ImageObject","url":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/logo.png","width":1000,"height":391},"email":"sbruicesingh@haclon.in","address":{"@type":"PostalAddress","addressLocality":"Azamgarh","addressRegion":"Uttar Pradesh","addressCountry":"IN"}},{"@type":"WebSite","@id":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/#website","url":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/","name":"APSInsight","description":"Information about APSInsight, the agricultural data platform of Agriculture Service of Product Farm.","publisher":{"@id":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/#org"},"inLanguage":["en","hi"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/"},{"@type":"ListItem","position":2,"name":"Records","item":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/records.html"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><img class="logo" src="logo.png" width="1000" height="391" alt="APSInsight"></a>
+    <nav class="site" aria-label="Primary"><a href="index.html">Home</a><a href="farmers.html">Farmers</a><a href="business.html">Business</a><a href="records.html" aria-current="page">Records</a><a href="platform.html">About</a><a href="security.html">Security</a></nav>
+  </div>
+</header>
+
+<main id="main" class="wrap doc">
+  <p class="crumbs"><a href="index.html">Home</a> / Records</p>
+  <h1>What the record is made of.</h1>
+  <p class="lede">These are the facts the APSInsight data model is built to hold. They are described here in ordinary language. Field names, tables, and interfaces are not published on this site.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Record</th><th>What it is for</th></tr></thead>
+    <tbody>
+      <tr><td>Organisation</td><td>The farm business, FPO, cooperative, or research group that owns the work.</td></tr>
+      <tr><td>Farm</td><td>The holding the records belong to.</td></tr>
+      <tr><td>Field</td><td>A named part of that farm.</td></tr>
+      <tr><td>Plot</td><td>A smaller piece inside a field, when the work needs that detail.</td></tr>
+      <tr><td>Soil sample</td><td>A sample that can keep its time, depth, and place when those are known.</td></tr>
+      <tr><td>Observation</td><td>One measurement: what was measured, the value, the unit, when it was taken, and a quality flag.</td></tr>
+      <tr><td>Dataset</td><td>A named collection of data, with versions, so a later file does not erase the earlier one without a trace.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h2>Three rules that keep the record honest</h2>
+  <ul class="clean">
+    <li>The unit stays with the value. A depth, a pH, and a weight are not stored as bare numbers that could be misread.</li>
+    <li>The time stays with the observation. A figure from last season is not presented as if it were taken today.</li>
+    <li>A measurement, an estimate, and a suggestion from a model are different kinds of statement. APSInsight is designed not to collapse them into one “result”.</li>
+  </ul>
+  <p class="note">Soil summaries are part of work that is still underway. This page does not calculate a recommendation for any real field.</p>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p>Agriculture Service of Product Farm (ASPF) · Azamgarh, Uttar Pradesh</p>
+    <p>This is an information website. It does not take farm records, and it does not give field advice.</p>
+    <p>Wording checked against ASPF project descriptions on 13 November 2026. No customer counts or yield figures are stated, because this site does not have them.</p>
+    <p><a href="security.html">Security</a> · <a href=".well-known/security.txt">security.txt</a> · <a href="mailto:sbruicesingh@haclon.in">sbruicesingh@haclon.in</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

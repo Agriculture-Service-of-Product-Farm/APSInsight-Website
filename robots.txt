@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow:
 
 Sitemap: https://agriculture-service-of-product-farm.github.io/APSInsight-Website/sitemap.xml

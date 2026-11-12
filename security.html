@@ -3,89 +3,81 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Security — APSInsight</title>
-  <meta name="description" content="Security model for APSInsight and for this public website. How to report a vulnerability in private.">
+  <title>Security of the APSInsight information site</title>
+  <meta name="description" content="The APSInsight information site is static. It sets no cookies, runs no executable script, and accepts no farm data. Report a website defect privately.">
   <link rel="canonical" href="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/security.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Agriculture Service of Product Farm">
   <meta name="referrer" content="no-referrer">
-  <meta name="color-scheme" content="light dark">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
-  <meta property="og:title" content="Security — APSInsight">
-  <meta property="og:description" content="Security model for APSInsight and for this public website. How to report a vulnerability in private.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f4faf7">
+  <meta name="geo.region" content="IN-UP">
+  <meta name="geo.placename" content="Azamgarh">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-RiUHkipAwGMogCFWdq44G7KxKZHGAcObgfQOXItqR+Q='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta property="og:title" content="Security of the APSInsight information site">
+  <meta property="og:description" content="The APSInsight information site is static. It sets no cookies, runs no executable script, and accepts no farm data. Report a website defect privately.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/logo.jpg">
   <meta property="og:url" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/security.html">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:image" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="APSInsight logo on a pale green and blue background">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:site_name" content="APSInsight">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Security of the APSInsight information site">
+  <meta name="twitter:description" content="The APSInsight information site is static. It sets no cookies, runs no executable script, and accepts no farm data. Report a website defect privately.">
+  <meta name="twitter:image" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/og.jpg">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/#org","name":"Agriculture Service of Product Farm","alternateName":"ASPF","url":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/","logo":{"@type":"ImageObject","url":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/logo.png","width":1000,"height":391},"email":"sbruicesingh@haclon.in","address":{"@type":"PostalAddress","addressLocality":"Azamgarh","addressRegion":"Uttar Pradesh","addressCountry":"IN"}},{"@type":"WebSite","@id":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/#website","url":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/","name":"APSInsight","description":"Information about APSInsight, the agricultural data platform of Agriculture Service of Product Farm.","publisher":{"@id":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/#org"},"inLanguage":["en","hi"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/"},{"@type":"ListItem","position":2,"name":"Security","item":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/security.html"}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap bar">
-    <a class="brand" href="index.html"><img class="logo" src="logo.jpg" width="280" height="72" alt="APSInsight"></a>
-    <nav class="site" aria-label="Primary"><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="science.html">Science</a><a href="status.html">Status</a><a href="security.html" aria-current="page">Security</a></nav>
+    <a class="brand" href="index.html"><img class="logo" src="logo.png" width="1000" height="391" alt="APSInsight"></a>
+    <nav class="site" aria-label="Primary"><a href="index.html">Home</a><a href="farmers.html">Farmers</a><a href="business.html">Business</a><a href="records.html">Records</a><a href="platform.html">About</a><a href="security.html" aria-current="page">Security</a></nav>
   </div>
 </header>
 
 <main id="main" class="wrap doc">
   <p class="crumbs"><a href="index.html">Home</a> / Security</p>
-  <h1>Tenant first, then role.</h1>
-  <p class="lede">Other tenants look like they are not there. This page states controls that have tests, and the residual risk that remains. It does not publish exploit steps.</p>
+  <h1>Security of this website.</h1>
+  <p class="lede">This page describes the public website only. It does not describe the internal design of APSInsight, and it does not publish configuration, keys, or review notes.</p>
   <div class="grid cards-2">
     <article class="panel card">
-      <h2>What is protected</h2>
+      <h2>What the site does</h2>
       <ul class="clean">
-        <li>Tenant records and their history.</li>
-        <li>The hash-chained audit log.</li>
-        <li>API tokens, stored only as SHA-256.</li>
-        <li>Schemas, rules, workflows and other operational metadata.</li>
+        <li>Static files. No account, no form, no upload, no analytics, no third-party font or script.</li>
+        <li>The only script is structured data for search engines. It does not run as a program. The content-security policy allows that block by its hash and nothing else.</li>
+        <li>No cookies. The page does not write storage in your browser.</li>
+        <li>Images and styles are loaded from this same site.</li>
+        <li>Pages are served over HTTPS by GitHub Pages. Transport headers such as HSTS are set by GitHub.</li>
       </ul>
     </article>
     <article class="panel card">
-      <h2>Controls that have tests</h2>
+      <h2>What it refuses</h2>
       <ul class="clean">
-        <li>The tenant comes only from the token. A cross-tenant read returns not-found, so identifiers cannot be probed.</li>
-        <li>Roles are a fixed ladder: viewer, editor, admin, plus auditor. Restore, delete, legal hold, schemas and migrations need the higher roles.</li>
-        <li>Tokens are never logged in the clear. Metrics labels are slugs and codes, not record contents.</li>
-        <li>Mutations validate before they write. A failed operation leaves no record change, only an audit event.</li>
-        <li>The journal is fsynced per commit. Snapshots are written atomically. The audit chain is verified on open.</li>
-        <li>Planned device commands must name an actuator, require acknowledgement and an interlock, and expire. No device adapter is reachable in this build.</li>
-      </ul>
-    </article>
-    <article class="panel card">
-      <h2>Residual risk, stated plainly</h2>
-      <ul class="clean">
-        <li>Static tokens rotate by restart. There is no revocation list, so a leaked token works until the process is restarted.</li>
-        <li>The rate limit is per process. Several replicas would not share one counter.</li>
-        <li>Anyone with filesystem access to the data directory is fully trusted. The server does not terminate TLS; an operator proxy does.</li>
-        <li>Anonymisation is not implemented. Records may contain personal data about farmers or workers. Keep the minimum, and delete only archived records that are not on legal hold.</li>
-        <li>Release artifacts are not signed yet. The product is pre-1.0. Only the latest commit on main receives security fixes.</li>
-      </ul>
-    </article>
-    <article class="panel card">
-      <h2>This website</h2>
-      <ul class="clean">
-        <li>Static files only. No JavaScript, no cookies, no forms, no analytics, no third-party requests.</li>
-        <li>Content-Security-Policy is <code>default-src 'none'</code> with styles and images limited to this origin. Inline scripts and eval are not permitted.</li>
-        <li>Pages are served over HTTPS by GitHub Pages. Transport headers such as HSTS are set by GitHub, not by this repository.</li>
-        <li>The repository has no application secrets. Push protection and private vulnerability reporting are enabled.</li>
-        <li>Direct force-push and deletion of <code>main</code> are rejected by a repository ruleset.</li>
+        <li>Farm records, names, phone numbers, and plot files. There is nowhere to submit them.</li>
+        <li>Source code and secrets of ASPF projects.</li>
+        <li>A public bug tracker post for a security report. Use the private address below.</li>
       </ul>
     </article>
   </div>
   <h2>Reporting</h2>
-  <ul class="clean">
-    <li>Engine defects: use <strong>Security → Report a vulnerability</strong> on <a href="https://github.com/SbruiceS/APSInsight" rel="noreferrer">SbruiceS/APSInsight</a>. Do not open a public issue. There is no bug bounty. Acknowledgement is aimed at within 3 working days.</li>
-    <li>Defects in this public site: email <a href="mailto:sbruicesingh@haclon.in">sbruicesingh@haclon.in</a> or use private vulnerability reporting on this repository. See <a href=".well-known/security.txt">security.txt</a>.</li>
-  </ul>
-  <p class="note">Engine policy: <a href="https://github.com/SbruiceS/APSInsight/blob/main/SECURITY.md" rel="noreferrer">SECURITY.md</a>. Dependency policy there: lockfiles, <code>cargo deny</code>, <code>npm audit</code>, secret scanning and an SBOM licence gate.</p>
+  <p>If you find a defect in this website, write to <a href="mailto:sbruicesingh@haclon.in">sbruicesingh@haclon.in</a>. Please include the page address and what you observed. Do not send farm data, and do not open a public issue for a security report.</p>
+  <p>A machine-readable copy is at <a href=".well-known/security.txt">security.txt</a>.</p>
 </main>
 <footer class="foot">
   <div class="wrap">
     <p>Agriculture Service of Product Farm (ASPF) · Azamgarh, Uttar Pradesh</p>
-    <p>This site is static. It sets no cookies, runs no scripts, and loads no third-party resources. It stores no farm records.</p>
-    <p>Engine source: <a href="https://github.com/SbruiceS/APSInsight" rel="noreferrer">SbruiceS/APSInsight</a> · Apache-2.0 · pre-1.0, commit 1c6f324 (2026-10-15).</p>
-    <p>Vulnerability reports: <a href="security.html">security page</a> · <a href=".well-known/security.txt">security.txt</a></p>
+    <p>This is an information website. It does not take farm records, and it does not give field advice.</p>
+    <p>Wording checked against ASPF project descriptions on 13 November 2026. No customer counts or yield figures are stated, because this site does not have them.</p>
+    <p><a href="security.html">Security</a> · <a href=".well-known/security.txt">security.txt</a> · <a href="mailto:sbruicesingh@haclon.in">sbruicesingh@haclon.in</a></p>
   </div>
 </footer>
+
 </body>
 </html>
