@@ -1,0 +1,38 @@
+name: site-guard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Reject scripts, remotes and missing CSP
+        run: |
+          set -eu
+          fail=0
+          html=$(find . -name '*.html' -not -path './.git/*')
+          for f in $html; do
+            if ! grep -q "default-src 'none'" "$f"; then
+              echo "missing strict CSP: $f"
+              fail=1
+            fi
+            if grep -E -i "<script|javascript:|onclick=|onload=|unsafe-inline|unsafe-eval|document\.cookie|googletagmanager|google-analytics|fonts\.googleapis|cdn\." "$f"; then
+              echo "forbidden pattern: $f"
+              fail=1
+            fi
+          done
+          if grep -R -E -n "https?://|//[a-zA-Z]" --include='*.html' --include='*.css' --include='*.svg' .             | grep -v -E "github.com/SbruiceS/APSInsight|agriculture-service-of-product-farm.github.io|http-equiv|xmlns=|w3.org/2000/svg|sitemaps/schemas"; then
+            echo "unexpected remote reference"
+            fail=1
+          fi
+          test -f .well-known/security.txt
+          test -f .nojekyll
+          exit "$fail"

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Science — APSInsight</title>
+  <meta name="description" content="Published formulas used by the APSInsight science library: dimensional units, growing degree days, FAO-56 reference evapotranspiration and spectral indices.">
+  <link rel="canonical" href="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/science.html">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta property="og:title" content="Science — APSInsight">
+  <meta property="og:description" content="Published formulas used by the APSInsight science library: dimensional units, growing degree days, FAO-56 reference evapotranspiration and spectral indices.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/science.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+  <rect width="36" height="36" rx="8" fill="#1d5c3a"/>
+  <path d="M6 24c4-8 8-8 12 0s8 8 12 0" fill="none" stroke="#f4efe4" stroke-width="2"/>
+  <path d="M8 16c3.2-5 6.2-5 9.4 0" fill="none" stroke="#e4c07a" stroke-width="2"/>
+  <circle cx="18" cy="10" r="2" fill="#fffaf2"/>
+</svg><span>APSInsight<small>Agriculture Service of Product Farm</small></span></a>
+    <nav class="site" aria-label="Primary"><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="science.html" aria-current="page">Science</a><a href="status.html">Status</a><a href="security.html">Security</a></nav>
+  </div>
+</header>
+
+<main id="main" class="wrap doc">
+  <p class="crumbs"><a href="index.html">Home</a> / Science</p>
+  <h1>The formulas, stated in public.</h1>
+  <p class="lede">These are the methods the science library is built to follow. This page does not run them and does not accept farm data. Nothing you read here is uploaded.</p>
+  <div class="grid cards-2">
+    <article class="panel card">
+      <h2>Units</h2>
+      <p>Different dimensions are refused. A mass-per-area value can convert to another mass-per-area unit. Temperatures convert through an offset; they are not added as if they were intervals.</p>
+    </article>
+    <article class="panel card">
+      <h2>Degree days</h2>
+      <p>Averaging method with an optional cap. The result is in °C·day. Inputs are minimum and maximum temperature, a base, and an optional upper cap.</p>
+    </article>
+    <article class="panel card">
+      <h2>Reference evapotranspiration</h2>
+      <p>FAO-56 Penman–Monteith, Allen et al. 1998, equation 6. Daily reference evapotranspiration in millimetres, from temperature, humidity, wind at 2 m, net radiation, elevation and soil heat flux.</p>
+    </article>
+    <article class="panel card">
+      <h2>Spectral indices</h2>
+      <p>Reflectance is 0 to 1. NDVI is (NIR − red) / (NIR + red), Rouse et al. 1974. A zero denominator is an error, not a number. The library also carries other published indices; this site does not list proprietary thresholds.</p>
+    </article>
+  </div>
+  <h2>Scientific integrity</h2>
+  <ul class="clean">
+    <li>Observations, estimates, simulations and model interpretations are different kinds of statement. They are not collapsed into one “result”.</li>
+    <li>KutajKutambi output cannot be presented as an observation. A recommendation needs a model, an evaluation, uncertainty and approval.</li>
+    <li>Genomics, transcriptomics and metabolomics records in this build are metadata only. There is no sequence, abundance or enrichment runtime.</li>
+    <li>Computer vision, natural-language assistance and satellite imagery connectors are blocked on systems that are not integrated.</li>
+  </ul>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p>Agriculture Service of Product Farm (ASPF) · Azamgarh, Uttar Pradesh</p>
+    <p>This site is static. It sets no cookies, runs no scripts, and loads no third-party resources. It stores no farm records.</p>
+    <p>Engine source: <a href="https://github.com/SbruiceS/APSInsight" rel="noreferrer">SbruiceS/APSInsight</a> · Apache-2.0 · pre-1.0, commit 1c6f324 (2026-10-15).</p>
+    <p>Vulnerability reports: <a href="security.html">security page</a> · <a href=".well-known/security.txt">security.txt</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security — APSInsight</title>
+  <meta name="description" content="Security model for APSInsight and for this public website. How to report a vulnerability in private.">
+  <link rel="canonical" href="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/security.html">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta property="og:title" content="Security — APSInsight">
+  <meta property="og:description" content="Security model for APSInsight and for this public website. How to report a vulnerability in private.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/security.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+  <rect width="36" height="36" rx="8" fill="#1d5c3a"/>
+  <path d="M6 24c4-8 8-8 12 0s8 8 12 0" fill="none" stroke="#f4efe4" stroke-width="2"/>
+  <path d="M8 16c3.2-5 6.2-5 9.4 0" fill="none" stroke="#e4c07a" stroke-width="2"/>
+  <circle cx="18" cy="10" r="2" fill="#fffaf2"/>
+</svg><span>APSInsight<small>Agriculture Service of Product Farm</small></span></a>
+    <nav class="site" aria-label="Primary"><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="science.html">Science</a><a href="status.html">Status</a><a href="security.html" aria-current="page">Security</a></nav>
+  </div>
+</header>
+
+<main id="main" class="wrap doc">
+  <p class="crumbs"><a href="index.html">Home</a> / Security</p>
+  <h1>Tenant first, then role.</h1>
+  <p class="lede">Other tenants look like they are not there. This page states controls that have tests, and the residual risk that remains. It does not publish exploit steps.</p>
+  <div class="grid cards-2">
+    <article class="panel card">
+      <h2>What is protected</h2>
+      <ul class="clean">
+        <li>Tenant records and their history.</li>
+        <li>The hash-chained audit log.</li>
+        <li>API tokens, stored only as SHA-256.</li>
+        <li>Schemas, rules, workflows and other operational metadata.</li>
+      </ul>
+    </article>
+    <article class="panel card">
+      <h2>Controls that have tests</h2>
+      <ul class="clean">
+        <li>The tenant comes only from the token. A cross-tenant read returns not-found, so identifiers cannot be probed.</li>
+        <li>Roles are a fixed ladder: viewer, editor, admin, plus auditor. Restore, delete, legal hold, schemas and migrations need the higher roles.</li>
+        <li>Tokens are never logged in the clear. Metrics labels are slugs and codes, not record contents.</li>
+        <li>Mutations validate before they write. A failed operation leaves no record change, only an audit event.</li>
+        <li>The journal is fsynced per commit. Snapshots are written atomically. The audit chain is verified on open.</li>
+        <li>Planned device commands must name an actuator, require acknowledgement and an interlock, and expire. No device adapter is reachable in this build.</li>
+      </ul>
+    </article>
+    <article class="panel card">
+      <h2>Residual risk, stated plainly</h2>
+      <ul class="clean">
+        <li>Static tokens rotate by restart. There is no revocation list, so a leaked token works until the process is restarted.</li>
+        <li>The rate limit is per process. Several replicas would not share one counter.</li>
+        <li>Anyone with filesystem access to the data directory is fully trusted. The server does not terminate TLS; an operator proxy does.</li>
+        <li>Anonymisation is not implemented. Records may contain personal data about farmers or workers. Keep the minimum, and delete only archived records that are not on legal hold.</li>
+        <li>Release artifacts are not signed yet. The product is pre-1.0. Only the latest commit on main receives security fixes.</li>
+      </ul>
+    </article>
+    <article class="panel card">
+      <h2>This website</h2>
+      <ul class="clean">
+        <li>Static files only. No JavaScript, no cookies, no forms, no analytics, no third-party requests.</li>
+        <li>Content-Security-Policy is <code>default-src 'none'</code> with styles and images limited to this origin. Inline scripts and eval are not permitted.</li>
+        <li>Pages are served over HTTPS by GitHub Pages. Transport headers such as HSTS are set by GitHub, not by this repository.</li>
+        <li>The repository has no application secrets. Push protection and private vulnerability reporting are enabled.</li>
+        <li>Direct force-push and deletion of <code>main</code> are rejected by a repository ruleset.</li>
+      </ul>
+    </article>
+  </div>
+  <h2>Reporting</h2>
+  <ul class="clean">
+    <li>Engine defects: use <strong>Security → Report a vulnerability</strong> on <a href="https://github.com/SbruiceS/APSInsight" rel="noreferrer">SbruiceS/APSInsight</a>. Do not open a public issue. There is no bug bounty. Acknowledgement is aimed at within 3 working days.</li>
+    <li>Defects in this public site: email <a href="mailto:sbruicesingh@haclon.in">sbruicesingh@haclon.in</a> or use private vulnerability reporting on this repository. See <a href=".well-known/security.txt">security.txt</a>.</li>
+  </ul>
+  <p class="note">Engine policy: <a href="https://github.com/SbruiceS/APSInsight/blob/main/SECURITY.md" rel="noreferrer">SECURITY.md</a>. Dependency policy there: lockfiles, <code>cargo deny</code>, <code>npm audit</code>, secret scanning and an SBOM licence gate.</p>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p>Agriculture Service of Product Farm (ASPF) · Azamgarh, Uttar Pradesh</p>
+    <p>This site is static. It sets no cookies, runs no scripts, and loads no third-party resources. It stores no farm records.</p>
+    <p>Engine source: <a href="https://github.com/SbruiceS/APSInsight" rel="noreferrer">SbruiceS/APSInsight</a> · Apache-2.0 · pre-1.0, commit 1c6f324 (2026-10-15).</p>
+    <p>Vulnerability reports: <a href="security.html">security page</a> · <a href=".well-known/security.txt">security.txt</a></p>
+  </div>
+</footer>
+</body>
+</html>

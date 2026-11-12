@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APSInsight — agricultural records, checked before they are believed</title>
+  <meta name="description" content="Public information site for APSInsight, the agricultural data analytics platform of the Agriculture Service of Product Farm. Honest status from tests. No cookies.">
+  <link rel="canonical" href="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/index.html">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta property="og:title" content="APSInsight — agricultural records, checked before they are believed">
+  <meta property="og:description" content="Public information site for APSInsight, the agricultural data analytics platform of the Agriculture Service of Product Farm. Honest status from tests. No cookies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/index.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+  <rect width="36" height="36" rx="8" fill="#1d5c3a"/>
+  <path d="M6 24c4-8 8-8 12 0s8 8 12 0" fill="none" stroke="#f4efe4" stroke-width="2"/>
+  <path d="M8 16c3.2-5 6.2-5 9.4 0" fill="none" stroke="#e4c07a" stroke-width="2"/>
+  <circle cx="18" cy="10" r="2" fill="#fffaf2"/>
+</svg><span>APSInsight<small>Agriculture Service of Product Farm</small></span></a>
+    <nav class="site" aria-label="Primary"><a href="index.html" aria-current="page">Home</a><a href="platform.html">Platform</a><a href="science.html">Science</a><a href="status.html">Status</a><a href="security.html">Security</a></nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap hero">
+    <div>
+      <p class="kicker">Agriculture Service of Product Farm</p>
+      <h1>Farm records, checked before they are believed.</h1>
+      <p class="hindi">खेत के आँकड़े, मानने से पहले जाँचे हुए।</p>
+      <p class="lede">APSInsight ingests, validates, catalogues, versions, analyses and governs agricultural data. One generic engine covers 100 domains, 31 capabilities and 800 kinds of record.</p>
+      <div class="actions">
+        <a class="btn" href="status.html">Read the honest status</a>
+        <a class="btn quiet" href="security.html">Security model</a>
+      </div>
+    </div>
+    <figure class="panel figure">
+      <svg viewBox="0 0 640 400" role="img" aria-labelledby="fieldTitle fieldDesc">
+  <title id="fieldTitle">Abstract field blocks beside a canal</title>
+  <desc id="fieldDesc">Geometric mustard, wheat and green plots divided by a pale irrigation line. Decorative only.</desc>
+  <rect width="640" height="400" fill="#c4b48a"/>
+  <path d="M0 250 C120 210 180 290 320 250 C460 210 520 290 640 250 L640 400 L0 400 Z" fill="#6d4030"/>
+  <rect x="36" y="36" width="250" height="120" fill="#d6a423"/>
+  <rect x="304" y="36" width="300" height="78" fill="#e6c15a"/>
+  <rect x="304" y="128" width="140" height="70" fill="#8ea35a"/>
+  <rect x="458" y="128" width="146" height="70" fill="#1d5c3a"/>
+  <rect x="36" y="172" width="120" height="70" fill="#8ea35a"/>
+  <rect x="170" y="172" width="116" height="70" fill="#1d5c3a"/>
+  <path d="M0 248 H640" stroke="#d7efe8" stroke-width="10"/>
+  <path d="M0 248 H640" stroke="#1e4f66" stroke-width="2" stroke-dasharray="8 10"/>
+</svg>
+      <figcaption class="caption"><span>APSInsight</span><span>100 × 31 · 800 entities</span></figcaption>
+    </figure>
+  </div>
+  <div class="band">
+    <div class="wrap">
+      <h2>Honest status, counted from tests</h2>
+      <p class="lede">A feature is not done because a folder exists. Status comes from code and automated tests. Of 3,100 features, 1,590 are implemented and tested.</p>
+      <div class="grid stats" style="margin-top:1rem">
+        <article class="panel stat"><span class="tag ok">Tested</span><b>1,590</b><span class="note">51.3%</span></article>
+        <article class="panel stat"><span class="tag warn">Partial</span><b>908</b><span class="note">29.3% · not fully tested</span></article>
+        <article class="panel stat"><span class="tag info">Specified</span><b>224</b><span class="note">7.2% · specified only</span></article>
+        <article class="panel stat"><span class="tag stop">Blocked</span><b>378</b><span class="note">12.2% · external dependency</span></article>
+      </div>
+    </div>
+  </div>
+  <section class="wrap">
+    <h2>Three parts you can point at</h2>
+    <div class="grid cards-3">
+      <article class="panel card"><p class="kicker">apsi-core</p><h3>Engine</h3><p class="note">Records, versioned schemas, validation, search, import and export, provenance, quality, retention, legal hold, workflows and a hash-chained audit log.</p></article>
+      <article class="panel card"><p class="kicker">apsi-science</p><h3>Science library</h3><p class="note">Spectral indices, geodesy, statistics, time series, FAO-56 reference evapotranspiration, soil water balance, texture, units and farm economics.</p></article>
+      <article class="panel card"><p class="kicker">apsi-contracts</p><h3>ASPF contracts</h3><p class="note">Versioned ports for AgriQL, KutajKutambi AI, AgriCUDA, APSNetwork and Nityaga. Those products are not built. The adapters report unavailable.</p></article>
+    </div>
+  </section>
+  <section class="wrap">
+    <h2>What this build does not pretend</h2>
+    <ul class="clean">
+      <li>PostgreSQL and PostGIS schemas are specified and not executed. Storage is an embedded journal.</li>
+      <li>No object store, Arrow, Parquet, DuckDB or raster I/O.</li>
+      <li>No Excel, database or streaming ingestion. CSV, JSON and NDJSON only.</li>
+      <li>No map UI, durable job queue, ML training, WebSocket channel, OIDC, SAML or MFA. Authentication is static bearer tokens.</li>
+      <li>Satellite and agency connectors are not integrated. Index formulas exist; imagery files do not.</li>
+      <li>AgriQL, KutajKutambi AI, AgriCUDA, APSNetwork and Nityaga RTOS are planned. Only contracts, discovery and a CPU fallback for AgriCUDA ship.</li>
+    </ul>
+    <p class="note">Counts are from <code>docs/STATUS.md</code> on main, generated from the traceability register. They are not a marketing estimate.</p>
+  </section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p>Agriculture Service of Product Farm (ASPF) · Azamgarh, Uttar Pradesh</p>
+    <p>This site is static. It sets no cookies, runs no scripts, and loads no third-party resources. It stores no farm records.</p>
+    <p>Engine source: <a href="https://github.com/SbruiceS/APSInsight" rel="noreferrer">SbruiceS/APSInsight</a> · Apache-2.0 · pre-1.0, commit 1c6f324 (2026-10-15).</p>
+    <p>Vulnerability reports: <a href="security.html">security page</a> · <a href=".well-known/security.txt">security.txt</a></p>
+  </div>
+</footer>
+</body>
+</html>

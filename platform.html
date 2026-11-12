@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Platform — APSInsight</title>
+  <meta name="description" content="How the APSInsight modular monolith is put together: one engine, science library, contracts, API, CLI and Angular UI.">
+  <link rel="canonical" href="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/platform.html">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta property="og:title" content="Platform — APSInsight">
+  <meta property="og:description" content="How the APSInsight modular monolith is put together: one engine, science library, contracts, API, CLI and Angular UI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/platform.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+  <rect width="36" height="36" rx="8" fill="#1d5c3a"/>
+  <path d="M6 24c4-8 8-8 12 0s8 8 12 0" fill="none" stroke="#f4efe4" stroke-width="2"/>
+  <path d="M8 16c3.2-5 6.2-5 9.4 0" fill="none" stroke="#e4c07a" stroke-width="2"/>
+  <circle cx="18" cy="10" r="2" fill="#fffaf2"/>
+</svg><span>APSInsight<small>Agriculture Service of Product Farm</small></span></a>
+    <nav class="site" aria-label="Primary"><a href="index.html">Home</a><a href="platform.html" aria-current="page">Platform</a><a href="science.html">Science</a><a href="status.html">Status</a><a href="security.html">Security</a></nav>
+  </div>
+</header>
+
+<main id="main" class="wrap doc">
+  <p class="crumbs"><a href="index.html">Home</a> / Platform</p>
+  <h1>A modular monolith with one engine.</h1>
+  <p class="lede">Each capability is implemented once and applied to every entity kind. Domain science lives in a separate library. The Angular UI, HTTP API and CLI share the same data directory.</p>
+  <h2>Components</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Part</th><th>Where</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td>Engine</td><td><code>crates/apsi-core</code></td><td>Records, schemas, validation, search, import and export, provenance, quality, retention, workflows, hash-chained audit.</td></tr>
+      <tr><td>Science</td><td><code>crates/apsi-science</code></td><td>Indices, geodesy, statistics, FAO-56, water balance, texture, dimensional units, economics.</td></tr>
+      <tr><td>Contracts</td><td><code>crates/apsi-contracts</code></td><td>v1.0 ports for planned ASPF products. Conformance tests. Default adapters say unavailable.</td></tr>
+      <tr><td>API</td><td><code>crates/apsi-server</code></td><td><code>/api/v1</code> over axum: bearer tokens, tenant isolation, body limits, security headers.</td></tr>
+      <tr><td>CLI</td><td><code>crates/apsi-cli</code></td><td><code>apsi</code>, JSON output, stable exit codes.</td></tr>
+      <tr><td>UI</td><td><code>web</code></td><td>Angular: dashboards, records, history, feature register. English and Hindi.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h2>A record’s life</h2>
+  <ul class="clean">
+    <li>Draft, then active, then archived. Restoring an archive needs the admin role.</li>
+    <li>Archived records are read-only. Permanent deletion is only for archived records that are not on legal hold.</li>
+    <li>Every accepted change appends a full version. A rollback is a new version, so history is never rewritten.</li>
+    <li>Writes carry an expected version. A stale write is a retryable conflict, not a silent overwrite.</li>
+    <li>The audit log is a SHA-256 chain over each event plus the previous hash, checked every time the engine opens.</li>
+  </ul>
+  <h2>Same envelope</h2>
+  <pre>domain  soil-profile
+entity  ph
+name    Synthetic plot topsoil
+value   6.4
+unit    pH
+life    draft → active → archived</pre>
+  <p class="note">Identity is opaque and time-ordered. Re-importing the same source record conflicts, or upserts, and never silently duplicates.</p>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p>Agriculture Service of Product Farm (ASPF) · Azamgarh, Uttar Pradesh</p>
+    <p>This site is static. It sets no cookies, runs no scripts, and loads no third-party resources. It stores no farm records.</p>
+    <p>Engine source: <a href="https://github.com/SbruiceS/APSInsight" rel="noreferrer">SbruiceS/APSInsight</a> · Apache-2.0 · pre-1.0, commit 1c6f324 (2026-10-15).</p>
+    <p>Vulnerability reports: <a href="security.html">security page</a> · <a href=".well-known/security.txt">security.txt</a></p>
+  </div>
+</footer>
+</body>
+</html>

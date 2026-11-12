@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Status — APSInsight</title>
+  <meta name="description" content="Honest feature status for APSInsight: 1590 tested, 908 partial, 224 specified, 378 blocked, of 3100 features.">
+  <link rel="canonical" href="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/status.html">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta property="og:title" content="Status — APSInsight">
+  <meta property="og:description" content="Honest feature status for APSInsight: 1590 tested, 908 partial, 224 specified, 378 blocked, of 3100 features.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/status.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+  <rect width="36" height="36" rx="8" fill="#1d5c3a"/>
+  <path d="M6 24c4-8 8-8 12 0s8 8 12 0" fill="none" stroke="#f4efe4" stroke-width="2"/>
+  <path d="M8 16c3.2-5 6.2-5 9.4 0" fill="none" stroke="#e4c07a" stroke-width="2"/>
+  <circle cx="18" cy="10" r="2" fill="#fffaf2"/>
+</svg><span>APSInsight<small>Agriculture Service of Product Farm</small></span></a>
+    <nav class="site" aria-label="Primary"><a href="index.html">Home</a><a href="platform.html">Platform</a><a href="science.html">Science</a><a href="status.html" aria-current="page">Status</a><a href="security.html">Security</a></nav>
+  </div>
+</header>
+
+<main id="main" class="wrap doc">
+  <p class="crumbs"><a href="index.html">Home</a> / Status</p>
+  <h1>Status from code and tests.</h1>
+  <p class="lede">Taken from the engine register on main (commit 1c6f324, 15 October 2026). The full per-feature matrix stays in the engine repository. This page is the public summary.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Status</th><th>Features</th><th>Share</th></tr></thead>
+    <tbody>
+      <tr><td>Implemented and tested</td><td>1,590</td><td>51.3%</td></tr>
+      <tr><td>Implemented, not fully tested</td><td>908</td><td>29.3%</td></tr>
+      <tr><td>Specified only</td><td>224</td><td>7.2%</td></tr>
+      <tr><td>Blocked on an external system</td><td>378</td><td>12.2%</td></tr>
+      <tr><td>Total</td><td>3,100</td><td>100%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h2>Blocked, with the reason kept</h2>
+  <ul class="clean">
+    <li>Authentication beyond static bearer tokens: password, passkey, MFA, OIDC and SAML need an identity provider.</li>
+    <li>PostgreSQL and PostGIS are not deployed. SQL migrations are specified and not executed.</li>
+    <li>No object store, signed uploads, Arrow, Parquet, DuckDB or raster I/O.</li>
+    <li>No computer-vision runtime, no natural-language model, no satellite or agency connector, no external credential store.</li>
+    <li>The five planned ASPF products are contracts only. Each has tested contract coverage and a larger blocked remainder because the product does not exist yet.</li>
+  </ul>
+  <h2>Specified, not built</h2>
+  <ul class="clean">
+    <li>WebSocket and server-sent events. Clients poll.</li>
+    <li>Machine-learning training and evaluation. Only metadata of runs and models exists.</li>
+    <li>A durable job worker and scheduler. A deterministic lifecycle core is tested; workflows still run synchronously.</li>
+    <li>A map workspace, a plugin loader, offline sync, and metering beyond a per-process rate limit.</li>
+  </ul>
+  <p>Source of the table: <a href="https://github.com/SbruiceS/APSInsight/blob/main/docs/STATUS.md" rel="noreferrer">docs/STATUS.md</a>.</p>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p>Agriculture Service of Product Farm (ASPF) · Azamgarh, Uttar Pradesh</p>
+    <p>This site is static. It sets no cookies, runs no scripts, and loads no third-party resources. It stores no farm records.</p>
+    <p>Engine source: <a href="https://github.com/SbruiceS/APSInsight" rel="noreferrer">SbruiceS/APSInsight</a> · Apache-2.0 · pre-1.0, commit 1c6f324 (2026-10-15).</p>
+    <p>Vulnerability reports: <a href="security.html">security page</a> · <a href=".well-known/security.txt">security.txt</a></p>
+  </div>
+</footer>
+</body>
+</html>
