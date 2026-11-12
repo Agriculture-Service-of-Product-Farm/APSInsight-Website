@@ -25,3 +25,5 @@ Public counts match `docs/STATUS.md` on engine commit `1c6f324` (2026-10-15): 1,
 ## Licence
 
 Website text and markup: Apache-2.0, same family as the engine. The engine itself remains in its own repository.
+
+Published from branch main.
