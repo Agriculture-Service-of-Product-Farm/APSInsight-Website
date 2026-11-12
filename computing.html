@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgriQL and AgriCUDA in APSInsight | ASPF</title>
+  <meta name="description" content="APSInsight uses AgriQL to query farm measurements, including aggregates and unit conversion, and AgriCUDA to check and run calculations on the CPU. A GPU is not claimed.">
+  <link rel="canonical" href="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/computing.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Agriculture Service of Product Farm">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f4faf7">
+  <meta name="geo.region" content="IN-UP">
+  <meta name="geo.placename" content="Azamgarh">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-os0+RD3HHEQx95me7CJ2G68vm6BWbnxOZKu596ubjp4='; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta property="og:title" content="AgriQL and AgriCUDA in APSInsight | ASPF">
+  <meta property="og:description" content="APSInsight uses AgriQL to query farm measurements, including aggregates and unit conversion, and AgriCUDA to check and run calculations on the CPU. A GPU is not claimed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/computing.html">
+  <meta property="og:image" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="APSInsight logo on a pale green and blue background">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:site_name" content="APSInsight">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AgriQL and AgriCUDA in APSInsight | ASPF">
+  <meta name="twitter:description" content="APSInsight uses AgriQL to query farm measurements, including aggregates and unit conversion, and AgriCUDA to check and run calculations on the CPU. A GPU is not claimed.">
+  <meta name="twitter:image" content="https://agriculture-service-of-product-farm.github.io/APSInsight-Website/og.jpg">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/#org","name":"Agriculture Service of Product Farm","url":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/"},{"@type":"ListItem","position":2,"name":"Computing","item":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/computing.html"}]},{"@type":"FAQPage","@id":"https://agriculture-service-of-product-farm.github.io/APSInsight-Website/computing.html#faq","mainEntity":[{"@type":"Question","name":"What is AgriQL in APSInsight?","acceptedAnswer":{"@type":"Answer","text":"AgriQL is ASPF’s agricultural query language, engine 3.10.1 and grammar 1.0, used by APSInsight. It can show the catalogue, select and aggregate measurements, convert units, import a CSV into a table, and profile a table. The query is kept with its result."}},{"@type":"Question","name":"What is AgriCUDA in APSInsight?","acceptedAnswer":{"@type":"Answer","text":"AgriCUDA is ASPF’s agricultural computing language. APSInsight can check a program and run it on the CPU. The run is a real execution, not a picture of a result. Degree-day accumulation and a soil-water balance are examples of the kind of calculation the language is for."}},{"@type":"Question","name":"Does AgriCUDA use a GPU?","acceptedAnswer":{"@type":"Answer","text":"No. AgriCUDA’s current device is the CPU. A GPU backend, an FPGA backend, and a native object-file build are not implemented. APSInsight does not claim them."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><img class="logo" src="logo.png" width="1000" height="391" alt="APSInsight"></a>
+    <nav class="site" aria-label="Primary"><a href="index.html">Home</a><a href="farmers.html">Farmers</a><a href="business.html">Business</a><a href="records.html">Records</a><a href="computing.html" aria-current="page">Computing</a><a href="platform.html">About</a><a href="security.html">Security</a></nav>
+  </div>
+</header>
+<main id="main" class="wrap doc">
+  <p class="crumbs"><a href="index.html">Home</a> / Computing</p>
+  <h1>AgriQL queries and AgriCUDA computing.</h1>
+  <p class="lede">APSInsight does not keep farm records alone. It uses AgriQL to ask questions of those records, and AgriCUDA to check and run a calculation. Both are ASPF languages. This page says what that support is. It does not accept a query or a program, and it does not print their source.</p>
+  <p class="hindi" lang="hi">AgriQL खेत के आँकड़ों से सवाल पूछने की भाषा है, जैसे औसत या इकाई बदलना। AgriCUDA गणना को जाँचकर सीपीयू पर चलाता है। यह पृष्ठ न कोई सवाल चलाता है, न कोई प्रोग्राम। जीपीयू का दावा नहीं है।</p>
+  <h2>AgriQL — the query language</h2>
+  <p>AgriQL is the agricultural query language and database APSInsight is wired to: engine 3.10.1, grammar 1.0. A question can be asked of the catalogue of measurements rather than of a spreadsheet whose units were forgotten.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Support in APSInsight</th><th>What it means for a farm record</th></tr></thead>
+    <tbody>
+      <tr><td>Catalogue</td><td>See which schemas and tables the engine is holding.</td></tr>
+      <tr><td>Select and aggregate</td><td>Average, count, minimum, maximum, and spread, with a filter and a group. Example: the average pH of samples from one field, if those samples were recorded.</td></tr>
+      <tr><td>Unit conversion</td><td>A depth or a rate can be converted between declared units, so millimetres are not silently read as inches.</td></tr>
+      <tr><td>CSV import</td><td>A table can be filled from a CSV file. This website does not offer that upload.</td></tr>
+      <tr><td>Profile</td><td>A table can be profiled so an empty or odd column is visible before someone trusts it.</td></tr>
+      <tr><td>Provenance</td><td>APSInsight keeps the query together with its result. The number can be traced back to the question that produced it.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>A point type for a place exists in AgriQL. That is not a finished map inside APSInsight, and this site does not draw one.</p>
+  <h2>AgriCUDA — the computing language</h2>
+  <p>AgriCUDA is an agriculture-oriented language for calculation. APSInsight can ask AgriCUDA to check a program, and to run it. A check covers types and the rules for parallel work. A run compiles the program to bytecode and executes that bytecode on the CPU. A second reading of the same program must agree. If the two readings disagree, the run fails rather than returning a quiet wrong number.</p>
+  <ul class="clean">
+    <li>The device APSInsight uses is the CPU. Work is done in order on that device. It is not a graphics processor.</li>
+    <li>A GPU backend is not implemented.</li>
+    <li>An FPGA backend is not implemented.</li>
+    <li>Writing a native object file is not implemented. Checking and running are.</li>
+    <li>The kind of farm arithmetic the language is used for includes a degree-day total and a soil-water balance. Those are examples of the language, not a recommendation for a plot, and this page does not publish a sample result as advice.</li>
+  </ul>
+  <h2>When the language is not installed</h2>
+  <p>APSInsight looks for the real AgriQL engine and the real AgriCUDA program. If either one is absent, the platform says so. It does not invent rows, and it does not invent a calculation. A label that a stand-in was used is not a field measurement.</p>
+  <h2>Questions</h2>
+  <div class="grid cards-2"><article class="panel card"><h3>What is AgriQL in APSInsight?</h3><p>AgriQL is ASPF’s agricultural query language, engine 3.10.1 and grammar 1.0, used by APSInsight. It can show the catalogue, select and aggregate measurements, convert units, import a CSV into a table, and profile a table. The query is kept with its result.</p></article><article class="panel card"><h3>What is AgriCUDA in APSInsight?</h3><p>AgriCUDA is ASPF’s agricultural computing language. APSInsight can check a program and run it on the CPU. The run is a real execution, not a picture of a result. Degree-day accumulation and a soil-water balance are examples of the kind of calculation the language is for.</p></article><article class="panel card"><h3>Does AgriCUDA use a GPU?</h3><p>No. AgriCUDA’s current device is the CPU. A GPU backend, an FPGA backend, and a native object-file build are not implemented. APSInsight does not claim them.</p></article></div>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p>Agriculture Service of Product Farm (ASPF) · Azamgarh, Uttar Pradesh</p>
+    <p>This is an information website. It does not take farm records, and it does not give field advice.</p>
+    <p>Wording checked against ASPF project descriptions on 13 November 2026. No customer counts or yield figures are stated, because this site does not have them.</p>
+    <p><a href="security.html">Security</a> · <a href=".well-known/security.txt">security.txt</a> · <a href="mailto:sbruicesingh@haclon.in">sbruicesingh@haclon.in</a></p>
+  </div>
+</footer>
+</body>
+</html>

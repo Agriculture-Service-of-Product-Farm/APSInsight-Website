@@ -8,7 +8,7 @@ This repository does not contain application source, configuration, credentials,
 
 ## What is stated
 
-Wording is limited to what ASPF project descriptions support: farm, field, plot, soil sample, observation, dataset catalogue, quality note, basic numerical summary, and an append-only activity record. Yield figures, user counts, and unfinished map or sensor products are not claimed.
+Wording is limited to what ASPF project descriptions support: farm, field, plot, soil sample, observation, dataset catalogue, quality note, basic numerical summary, an append-only activity record, AgriQL queries (engine 3.10.1), and AgriCUDA CPU execution. Yield figures, user counts, and unfinished map or sensor products are not claimed.
 
 ## Security posture
 
